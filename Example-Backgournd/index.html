@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <section class="area-logo" id="area">
+        
+    </section>
+    <script>
+
+        const colores = ['#2196f3', '#e91e63','#ffeb3b','#74ff1d'];
+
+        function createSquare(){
+            
+            const seccion = document.getElementById("area");
+            const square = document.createElement("span");
+            var tamanio = Math.random() * 50;
+
+            square.style.width = 20 + tamanio + 'px';
+            square.style.height = 20 + tamanio + 'px';
+
+            square.style.top = Math.random() * innerHeight + 'px';
+            square.style.left = Math.random() * innerWidth + 'px';
+
+            var indice = Math.floor(Math.random() * colores.length);
+            const bg = colores[indice];
+            
+            square.style.background = bg;
+
+            seccion.appendChild(square);
+
+            setTimeout( () => {
+                square.remove()
+            }, 5000);
+
+        }
+
+        setInterval(createSquare, 150);
+
+    </script>
+</body>
+</html>
